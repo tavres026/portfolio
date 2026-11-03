@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maria Clara Tavares | Desenvolvedora Front-end</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">Maria Clara<span>.dev</span></a>
+
+      <nav class="nav-menu">
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre Mim</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- BOTÕES REORGANIZADOS NO CANTO DIREITO -->
+      <div class="nav-actions">
+        <button id="btn-tema" class="btn-tema" aria-label="Alternar modo claro e escuro" title="Alternar Tema">
+          <span class="icone-tema">🌙</span>
+        </button>
+
+        <button id="btn-hambuerguer" class="btn-hambuerguer" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INÍCIO -->
+    <section id="inicio" class="hero container">
+      <div class="hero-badge">
+        <span id="saudacao">Olá!</span>
+      </div>
+      <h1 class="hero-titulo">Maria Clara Tavares</h1>
+      <p class="hero-subtitulo">Estudante de Desenvolvimento de Sistemas no SENAC MedTec | 17 anos</p>
+      <div class="hero-botoes">
+        <a href="#projetos" class="btn btn-principal">Ver Meus Projetos</a>
+        <a href="#contato" class="btn btn-secundario">Falar Comigo</a>
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="container">
+      <h2 class="titulo-secao">Sobre Mim</h2>
+      <div class="sobre-card">
+        <p>Olá! Meu nome é Maria Clara Tavares, tenho 17 anos e sou estudante do curso Técnico em Desenvolvimento de Sistemas no SENAC MedTec em Natal/RN. Minha paixão pela tecnologia começou quando percebi o poder de transformar conceitos visuais e ideias lógicas em interfaces funcionais e acessíveis na web.</p>
+        <p>Atualmente estou me aprofundando na construção de aplicações Front-end responsivas, com foco em HTML semântico, CSS moderno e JavaScript puro. Busco minha primeira oportunidade de estágio para aplicar meus conhecimentos em projetos reais, evoluir minhas habilidades técnicas e colaborar com uma equipe de desenvolvimento dinâmica.</p>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="container">
+      <h2 class="titulo-secao">Habilidades</h2>
+      <div class="habilidades-grid">
+        <div class="habilidade-card">
+          <span class="habilidade-nome">HTML5 Semântico</span>
+          <span class="habilidade-nivel">Avançado</span>
+        </div>
+        <div class="habilidade-card">
+          <span class="habilidade-nome">CSS3 / Flexbox / Grid</span>
+          <span class="habilidade-nivel">Praticando</span>
+        </div>
+        <div class="habilidade-card">
+          <span class="habilidade-nome">JavaScript (ES6+)</span>
+          <span class="habilidade-nivel">Praticando</span>
+        </div>
+        <div class="habilidade-card">
+          <span class="habilidade-nome">Figma / UI Design</span>
+          <span class="habilidade-nivel">Praticando</span>
+        </div>
+        <div class="habilidade-card">
+          <span class="habilidade-nome">Git & GitHub</span>
+          <span class="habilidade-nivel">Iniciante</span>
+        </div>
+        <div class="habilidade-card">
+          <span class="habilidade-nome">Design Responsivo</span>
+          <span class="habilidade-nivel">Avançado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="container">
+      <h2 class="titulo-secao">Projetos</h2>
+      
+      <!-- FILTROS -->
+      <div class="filtros-container">
+        <button class="btn-filtro active" data-filtro="todos">Todos</button>
+        <button class="btn-filtro" data-filtro="HTML/CSS">HTML/CSS</button>
+        <button class="btn-filtro" data-filtro="JavaScript">JavaScript</button>
+        <button class="btn-filtro" data-filtro="Figma">Figma</button>
+      </div>
+
+      <!-- CARDS GERADOS VIA JAVASCRIPT -->
+      <div id="projetos-container" class="projetos-grid"></div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="container">
+      <h2 class="titulo-secao">Contato</h2>
+      <div class="contato-wrapper">
+        <div id="mensagem-sucesso" class="msg-sucesso" role="alert">Mensagem enviada com sucesso! Entrarei em contato em breve.</div>
+        
+        <form id="form-contato" novalidate>
+          <div class="form-grupo">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" class="form-controle" placeholder="Seu nome">
+            <div id="erro-nome" class="msg-erro">Por favor, informe seu nome.</div>
+          </div>
+
+          <div class="form-grupo">
+            <label for="email">E-mail de Contato</label>
+            <input type="email" id="email" class="form-controle" placeholder="seuemail@exemplo.com">
+            <div id="erro-email" class="msg-erro">Insira um e-mail válido contendo '@' e '.'.</div>
+          </div>
+
+          <div class="form-grupo">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" rows="4" class="form-controle" placeholder="Como posso ajudar você?"></textarea>
+            <div id="erro-mensagem" class="msg-erro">A mensagem deve conter no mínimo 20 caracteres.</div>
+          </div>
+
+          <div class="form-grupo form-checkbox">
+            <input type="checkbox" id="consentimento">
+            <label for="consentimento">Concordo com o tratamento dos dados fornecidos neste formulário exclusivamente para fins de retorno de contato profissional (LGPD).</label>
+          </div>
+          <div id="erro-consentimento" class="msg-erro">Você precisa aceitar os termos de consentimento.</div>
+
+          <button type="submit" class="btn btn-principal btn-block">Enviar Mensagem</button>
+        </form>
+
+        <div class="redes-sociais">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-conteudo">
+      <p>Desenvolvido por Maria Clara Tavares &copy; <span id="ano-atual"></span></p>
+      <a href="#inicio" class="link-topo">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <button id="btn-topo" class="btn-topo" aria-label="Voltar ao topo da página">↑</button>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+</html>
